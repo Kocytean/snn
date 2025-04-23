@@ -209,7 +209,7 @@ class Layer():
 		self.state = np.zeros(self.num_units)
 		self.spikes = [Bus() for _ in range(self.num_units)]
 		# self.bias = 0.4 + 0.4*np.random.ranf(self.num_units)
-		self.bias = 0.2*np.ones(self.num_units)
+		self.bias = 0.1*np.random.ranf(self.num_units)
 		self.threshold = np.ones(self.num_units)
 		self.synapses = []
 		self.spike_life = 0
