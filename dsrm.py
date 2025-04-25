@@ -208,14 +208,14 @@ class Layer():
 		self.t_s = np.zeros(self.num_units) - Clock.inf
 		self.state = np.zeros(self.num_units)
 		self.spikes = [Bus() for _ in range(self.num_units)]
-		# self.bias = 0.4 + 0.4*np.random.ranf(self.num_units)
 		self.bias = 0.1*np.random.ranf(self.num_units)
 		self.threshold = np.ones(self.num_units)
 		self.synapses = []
 		self.spike_life = 0
 		self.verbose = False
 		self.destination = None
-
+	def __len__(self):
+		return len(self.num_units)
 	def reset(self):
 		self.epsilon = np.zeros(self.num_units)
 		self.eta = np.zeros(self.num_units)
