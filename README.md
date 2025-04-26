@@ -2,7 +2,6 @@ __Discretised Spike Response Model__
 
 Deep spiking neural network using Numpy
 
-Features:
 - Axonal weights and delays
 - Seperate implementations for neuron dynamics and network routing
 - Designed for experimention with neuron simulation methods and learning algorithms
