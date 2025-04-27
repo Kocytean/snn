@@ -61,32 +61,7 @@ class Spike():
 		self.time = time
 		self.life = life
 		self.var = var
-	def __add__(self, adduct):
-		if isinstance(adduct, Bus):
-			return adduct.__add__(self)
-		else:
-			try:
-				return float(adduct)+self.time
-			except Exception as e:
-				raise(TypeError('adduct to spike must cast to float'))
-	def __radd__(self, adduct):
-		return self.__add__(adduct)
-	def __iadd__(self, adduct):
-		self.time = self.__add__(adduct)
-		return self
-	def __sub__(self, adduct):
-		try:
-			return self.time - float(adduct)
-		except Exception as e:
-			raise(TypeError('adduct to spike must cast to float'))
-	def __rsub__(self, adduct):
-		try:
-			return float(adduct) - self.time
-		except Exception as e:
-			raise(TypeError('adduct to spike must cast to float'))
-	def __isub__(self, adduct):
-		self.time = self.__sub__(adduct)
-		return self
+	
 	def __lt__(self, other):
 		return self.time<other.time
 	def __le__(self, other):
@@ -99,16 +74,43 @@ class Spike():
 		return self.time==other.time
 	def __ne__(self, other):
 		return self.time!=other.time
-	def __mul__(self, factor):
-		try:
-			return Spike(self.time, self.time, self.var)
-		except(e):
-			raise(TypeError('Error in spike __mul__, product to spike must cast to float. \nException raised during __mul__'))
-			print(e)
-	def __rmul__(self, product):
-		return self.__mul__(product)
-	def __imul__(self, product):
-		return self.__mul__(product)
+	# def __add__(self, adduct):
+	# 	if isinstance(adduct, Bus):
+	# 		return adduct.__add__(self)
+	# 	else:
+	# 		try:
+	# 			return float(adduct)+self.time
+	# 		except Exception as e:
+	# 			raise(TypeError('adduct to spike must cast to float'))
+	# def __radd__(self, adduct):
+	# 	return self.__add__(adduct)
+	# def __iadd__(self, adduct):
+	# 	self.time = self.__add__(adduct)
+	# 	return self
+	# def __sub__(self, adduct):
+	# 	try:
+	# 		return self.time - float(adduct)
+	# 	except Exception as e:
+	# 		raise(TypeError('adduct to spike must cast to float'))
+	# def __rsub__(self, adduct):
+	# 	try:
+	# 		return float(adduct) - self.time
+	# 	except Exception as e:
+	# 		raise(TypeError('adduct to spike must cast to float'))
+	# def __isub__(self, adduct):
+	# 	self.time = self.__sub__(adduct)
+	# 	return self
+	# def __mul__(self, factor):
+	# 	# convenience function to convert simulation time to proper time valu
+	# 	try:
+	# 		return self.time*factor
+	# 	except(e):
+	# 		raise(TypeError('Error in spike __mul__, product to spike must cast to float. \nException raised during __mul__'))
+	# 		print(e)
+	# def __rmul__(self, product):
+	# 	return self.__mul__(product)
+	# def __imul__(self, product):
+	# 	return self.__mul__(product)
 	def __repr__(self):
 		return "t + "+str(self.time)
 	def __str__(self):
