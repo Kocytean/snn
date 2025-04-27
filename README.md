@@ -9,4 +9,4 @@ Deep spiking neural network using Numpy
 
 WIP: 
 - Seperating implementation of initialisation distributions of network dynamics/routing parameters
-- Stable backpropagation algorithms
+- Suite of optimization tools
